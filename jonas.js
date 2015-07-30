@@ -9,7 +9,7 @@ jonas=function(){ // ini
 jonas.oauth=function(){
     var oUrl='https://accounts.google.com/o/oauth2/auth'
     //document.location.href=oUrl+'?client_id=219713047770-62lp54st6asguu9r43djdhnbs0nqhse6.apps.googleusercontent.com&response_type=token&scope=email&redirect_uri=http://localhost:8000/DavidIsRight/jonas.html'
-    document.location.href=oUrl+'?client_id=219713047770-62lp54st6asguu9r43djdhnbs0nqhse6.apps.googleusercontent.com&response_type=token&scope=email&redirect_uri=https://jonasalmeida.github.io/DavidIsRight/jonas.html'
+    document.location.href=oUrl+'?client_id=219713047770-62lp54st6asguu9r43djdhnbs0nqhse6.apps.googleusercontent.com&response_type=token&scope=email&redirect_uri='+location.href
 }
 
 if(location.hash.length==0){
