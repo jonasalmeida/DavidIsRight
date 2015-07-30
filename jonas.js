@@ -12,6 +12,9 @@ jonas.oauth=function(){
     document.location.href=oUrl+'?client_id=219713047770-62lp54st6asguu9r43djdhnbs0nqhse6.apps.googleusercontent.com&response_type=token&scope=email&redirect_uri=https://jonasalmeida.github.io/DavidIsRight/jonas.html'
 }
 
+if(location.search.length==0){
+    jonas()
+}
 //jonas()
 
 
