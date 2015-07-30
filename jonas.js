@@ -14,6 +14,10 @@ jonas.oauth=function(){
 
 if(location.hash.length==0){
     jonas()
+}else{
+    eval('preJSON = {"'+location.hash.slice(1).replace(/=/g,'":"').replace(/&/g,'","')+'"}')
+    $('<pre>'+JSON.stringify(preJSON,null,3)+'</pre>').appendTo(document.body)
+    //$('<pre>'+'{\n"'+location.hash.slice(1).replace(/=/g,'":"').replace(/&/g,'",\n"')+'"\n}'+'</pre>').appendTo(body)
 }
 //jonas()
 
