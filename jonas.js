@@ -15,23 +15,14 @@ jonas.oauth=function(){
 if(location.hash.length==0){
     jonas()
 }else{
-    $('<h4 style="color:blue">Extracting parameters from the URL hash:</h4>').appendTo(document.body)
-    eval('preJSON = {"'+location.hash.slice(1).replace(/=/g,'":"').replace(/&/g,'","')+'"}')
-    $('<pre style="color:maroon">'+JSON.stringify(preJSON,null,3)+'</pre>').appendTo(document.body)
-    
+    (function(){ // keeping scope within an annonimous function
+        $('<h4 style="color:blue">Extracting parameters from the URL hash:</h4>').appendTo(document.body)
+        var preJSON={};
+        location.hash.slice(1)
+            .split(/&/g)
+            .map(function(xi){return xi.split(/=/g)})
+            .map(function(xi){preJSON[xi[0]]=xi[1]})
+        $('<pre style="color:maroon">'+JSON.stringify(preJSON,null,3)+'</pre>').appendTo(document.body)
+        location.hash="" // remove hash to clean url
+    })()       
 }
-//jonas()
-
-
-/*
-https://accounts.google.com/o/oauth2/auth?
- scope=email%20profile&
- state=%2Fprofile&
- redirect_uri=https%3A%2F%2Foauth2-login-demo.appspot.com%2Foauthcallback&
- response_type=token&
- client_id=812741506391.apps.googleusercontent.com
-
-https://accounts.google.com/o/oauth2/auth?client_id=219713047770-62lp54st6asguu9r43djdhnbs0nqhse6.apps.googleusercontent.com&response_type=token&scope=email
-
- 
- */
